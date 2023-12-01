@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.9"
 sqlalchemy = "^2.0.23"
 pg8000 = "^1.30.3"
+flask = "^3.0.0"
 
 
 [tool.poetry.group.dev.dependencies]

@@ -9,47 +9,28 @@
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="about.html">AstraBlog</a>
+        <a class="navbar-brand" href={{ url_for('index') }}>AstraBlog</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="main.html">Authors</a>
+              <a class="nav-link active" aria-current="page" href={{ url_for('authors_app.author') }}>Authors</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="posts.html">Posts</a>
+              <a class="nav-link active" aria-current="page" href={{ url_for('posts_app.posts') }}>Posts</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
+              <a class="nav-link" href={{ url_for('about_app.about') }}>About</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">
-        <div class="card w-50 mb-3">
-          <div class="card-body">
-            <h5 class="card-title">Posts about something</h5>
-            <p class="card-text">This post about big stars</p>
-            <a href="author.html" class="btn btn-primary">To Author</a>
-            <a href="post.html" class="btn btn-primary">To Post</a>
-          </div>
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="card w-50 mb-3">
-          <div class="card-body">
-            <h5 class="card-title">Posts about something</h5>
-            <p class="card-text">This post about big stars</p>
-            <a href="author.html" class="btn btn-primary">To Author</a>
-             <a href="post.html" class="btn btn-primary">To Post</a>
-          </div>
-        </div>
-      </li>
-    </ul>
+    {% block content %}
+        Content
+    {% endblock %}
     <div class="container">
       <footer class="py-3 my-4 fixed-bottom">
         <p class="text-center text-body-secondary">&copy; 2023 Author, Inc</p>
