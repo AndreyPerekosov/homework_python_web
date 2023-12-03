@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+    <ul class="list-group list-group-flush">
+    {% if users %}
+        {% for user in users %}
+          <li class="list-group-item">
+            <div class="card w-50 mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Blog by {{ user.name }} {{ user.username }}</h5>
+                <p class="card-text">With blog about big stars</p>
+                <a href={{ url_for('authors_app.author', user_id = user.id) }} class="btn btn-primary">To posts</a>
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+    {% else %}
+        No authors
+    {% endif %}
+    </ul>
+{% endblock %}

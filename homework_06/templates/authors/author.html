@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Blog by {{ author.name }} {{ author.surname }}</h2>
+    <ul class="list-group list-group-flush">
+    {% if posts %}
+        {% for post in posts %}
+          <li class="list-group-item">
+            <div class="card w-50 mb-3">
+              <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="card-text">{{ post.body }}</p>
+                <a href={{ url_for('posts_app.post', auth_id=author.id, post_id = post.id) }} class="btn btn-primary">To post</a>
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+    {% else %}
+        No posts
+    {% endif %}
+    </ul>
+{% endblock %}
