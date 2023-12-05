@@ -9,7 +9,8 @@
               <div class="card-body">
                 <h5 class="card-title">{{ post.title }}</h5>
                 <p class="card-text">{{ post.body }}</p>
-                <a href={{ url_for('posts_app.post', auth_id=author.id, post_id = post.id) }} class="btn btn-primary">To post</a>
+                <a href={{ url_for('posts_app.post', auth_id=author.id, post_id=post.id) }} class="btn btn-primary">To post</a>
+                <form method="POST"><button class="btn btn-primary" formaction={{ url_for('authors_app.post_delete', user_id=author.id, post_id=post.id) }}>Delete post</button></form>
               </div>
             </div>
           </li>
@@ -18,4 +19,11 @@
         No posts
     {% endif %}
     </ul>
+    <h1>Create post</h1>
+    <form method="POST">
+        {{ form.errors }}
+        {{ form.title.label }} {{ form.title(class="form-control") }}
+        {{ form.body.label }} {{ form.body(class="form-control") }}
+        <input class="btn btn-primary" type="submit" value="Save">
+    </form>
 {% endblock %}
